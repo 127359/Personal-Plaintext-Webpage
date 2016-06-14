@@ -1,0 +1,58 @@
+body{
+	margin: 40px auto;
+	padding: 0 10px;
+
+	max-width: $max-content-width;
+
+	font-family: 'Times';
+	line-height: 1.6;
+	font-size: 18px;
+}
+
+h1, h2, h3 {
+	line-height: 1.2;
+	font-weight: bold;
+}
+
+a { display: block }
+
+ul {
+	list-style-type: disc;
+	list-style-position: inside;
+	padding-left: 40px;
+}
+
+hgroup {
+	text-align: center;
+	margin-bottom: 50px;
+
+	h1 { font-size: 30px }
+	h2 { font-size: 22px }
+}
+
+img.profile-image {
+	@media screen and (max-width: $small-screen) {
+		display: none;
+	}
+	width: 300px;
+	padding: 0 20px 20px 0;
+	float: left;
+}
+
+section {
+	@media screen and (max-width: $small-screen) {
+		// border-bottom: 3px solid;
+		padding-bottom: 15px;
+		font-size: 15px;
+	}
+
+	clear: both;
+	font-size: 17px;
+	margin-bottom: 20px;
+
+	h1 { font-size: 22px }
+	h2 { font-size: 18px }
+	h1, h2 { margin: 10px }
+	ul { margin: 15px auto }
+
+}

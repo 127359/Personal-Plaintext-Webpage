@@ -1,0 +1,23 @@
+ul.skills-list {
+  padding-left: 0;
+  margin: 0;
+  // background-color: red;
+
+  li {
+    // background-color: blue;
+    display: inline-block;
+
+    width: $max-content-width / 4;
+
+    @media screen and (max-width: $small-screen) {
+  		width: 33%;
+  	}
+
+
+  }
+}
+
+.majors-list {
+  margin-left: 20px;
+  list-style-type: circle;
+}
