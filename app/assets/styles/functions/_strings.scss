@@ -1,0 +1,34 @@
+@function str-concat($string_1, $string_2: '', $symbol: '') {
+
+  $string_1: quote($string_1);
+  $string_2: quote($string_2);
+
+	@return $string_1 + $symbol + $string_2;
+
+}
+
+
+@function str-combine($string, $replace: '-') {
+
+  $index: str-index($string, ' ');
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + 1), ' ', $replace);
+	}
+
+	@return $string;
+
+}
+
+
+@function str-tear($string, $replace: ' ') {
+
+  $index: str-index($string, '-');
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + 1), '-', $replace);
+	}
+
+	@return $string;
+
+}

@@ -1,0 +1,18 @@
+@mixin font-face($name, $styles...) {
+
+  $name: str-concat($name);
+  $path: str-concat('../fonts/', to-lower-case($name));
+
+	@each $style in $styles {
+    $file-name: str-concat($name, $style, '-');
+    $file-name: str-concat($file-name, '.ttf');
+    $url: str-concat($path, $file-name, '/');
+
+    @font-face {
+      font-family: str-tear($name);
+      font-weight: to-lower-case($style);
+      src: local('☺'), url($url) format('truetype');
+    }
+	}
+
+}

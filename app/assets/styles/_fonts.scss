@@ -1,0 +1,5 @@
+@include font-face(Antonio, Bold, Light, Regular);
+@include font-face(Lora, Bold, BoldItalic, Italic, Regular);
+
+
+h1, h2, h3 { font-family: Antonio, Sans-Serif, Sans; }
