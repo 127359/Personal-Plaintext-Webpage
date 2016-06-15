@@ -23,11 +23,7 @@ export default React.createClass({
           <a href='#'>Strengths Finder</a>
         </section>
 
-        <section title='skills'>
-          <h1>Skills</h1>
-          <Skills />
-          <hr/>
-        </section>
+        <Skills />
 
         <Experiences />
 
@@ -56,9 +52,13 @@ var Skills = React.createClass({
         })
 
         return(
-          <ul className='skills-list'>
-            { skillsList }
-          </ul>
+          <section title='skills'>
+            <h1>Skills</h1>
+            <ul className='skills-list'>
+              { skillsList }
+            </ul>
+            <hr/>
+          </section>
         )
     }
 });
