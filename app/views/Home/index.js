@@ -1,7 +1,7 @@
 import React from 'react';
 import { History } from 'react-router';
-import SkillData from '../../stores/skills'
-import ExperienceData from '../../stores/experiences'
+import Skills from './components/_skills';
+import Experiences from './components/_experiences';
 
 export default React.createClass({
   mixins: [ History ],
@@ -41,50 +41,5 @@ export default React.createClass({
 
       </section>
     );
-  }
-});
-
-
-var Skills = React.createClass({
-    render: function() {
-        var skillsList = SkillData.map(function(skill){
-          return <li>{skill}</li>;
-        })
-
-        return(
-          <section title='skills'>
-            <h1>Skills</h1>
-            <ul className='skills-list'>
-              { skillsList }
-            </ul>
-            <hr/>
-          </section>
-        )
-    }
-});
-
-
-var Experiences = React.createClass({
-  render: function() {
-      var experienceList = ExperienceData.map(function(experience){
-        return(
-          <div className={experience.name}>
-            <h2>{experience.name}</h2>
-            <ul>
-              {experience.details.map(function(detail){
-                return(<li dangerouslySetInnerHTML={{__html: detail}}></li>);
-              })}
-            </ul>
-          </div>
-        );
-      })
-
-      return(
-        <section title='experience'>
-          <h1>Experience</h1>
-          { experienceList }
-          <hr/>
-        </section>
-      );
   }
 });
