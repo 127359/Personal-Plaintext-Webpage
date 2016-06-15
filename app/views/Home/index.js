@@ -1,6 +1,8 @@
 import React from 'react';
 import { History } from 'react-router';
 
+var SkillData = require('../../stores/skills');
+
 export default React.createClass({
   mixins: [ History ],
 
@@ -23,36 +25,7 @@ export default React.createClass({
 
         <section title='skills'>
           <h1>Skills</h1>
-          <ul className='skills-list'>
-            <li>Ruby/Rails/Sinatra</li>
-            <li>CSS/LESS/SASS</li>
-            <li>Node/React</li>
-            <li>Networking</li>
-
-            <li>PHP</li>
-            <li>Python</li>
-            <li>Linux/Shell</li>
-            <li>Production deployment</li>
-
-            <li>Relational Databases</li>
-            <li>Dev Ops/Ansible</li>
-            <li>Relational Databases</li>
-            <li>Stripe/Brain Tree</li>
-
-            <li>VMs/Docker</li>
-            <li>APIs</li>
-            <li>Git/Git Workflow</li>
-            <li>JS/jQuery/CoffeeScript</li>
-
-            <li>Active Directory</li>
-            <li>HTML/HAML/ERB</li>
-            <li>Agile/SCRUM</li>
-            <li>Windows Server</li>
-
-            <li>LAMP Stack</li>
-            <li>ELK Stack</li>
-            <li>Lets Encrypt</li>
-          </ul>
+          <Skills />
           <hr/>
         </section>
 
@@ -113,4 +86,19 @@ export default React.createClass({
       </section>
     );
   }
+});
+
+
+var Skills = React.createClass({
+    render: function() {
+        var skillsList = SkillData.map(function(skill){
+          return <li>{skill}</li>;
+        })
+
+        return(
+          <ul className='skills-list'>
+            { skillsList }
+          </ul>
+        )
+    }
 });
