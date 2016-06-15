@@ -1,7 +1,7 @@
 import React from 'react';
 import { History } from 'react-router';
-
-var SkillData = require('../../stores/skills');
+import SkillData from '../../stores/skills'
+import ExperienceData from '../../stores/experiences'
 
 export default React.createClass({
   mixins: [ History ],
@@ -29,46 +29,7 @@ export default React.createClass({
           <hr/>
         </section>
 
-        <section title='experience'>
-          <h1>Experience</h1>
-          <h2>MissionSpree (January - Present)</h2>
-          <ul>
-            <li>Licenced and co-founded MissionSpree, a Charitable Ecommerce</li>
-          </ul>
-
-          <h2>Pressable (August 2014 - Yesterday)</h2>
-          <ul>
-            <li>Developed and maintained <b>Rails 3</b> web app to help customers manage <b>Wordpress</b> sites</li>
-            <li>Used <b>Rspec+Capybara</b> to achive full test coverage of the code base</li>
-            <li>Developed proprietary, <b>server-side</b> tools and <b>APIs</b> in <b>PHP</b></li>
-          </ul>
-
-          <h2>HipStu (May - August 2014)</h2>
-          <ul>
-            <li>Worked with small team to rebuild full social Ecommerce platform in <b>Rails 4</b></li>
-            <li>Improved application performance by over 5 times over original design</li>
-          </ul>
-
-          <h2>Stowers Solutions (2012 - Present)</h2>
-          <ul>
-            <li>Developed and licensed “Stowers Solutions” for custom software consultancy</li>
-            <li>Automated deployment of PHP and Rails Ecommerce sites with <b>Ansible</b></li>
-          </ul>
-
-          <h2>Elevate Systems (May – August 2013)</h2>
-          <ul>
-            <li>Assisted clients in server and workstation maintenance and upgrades</li>
-            <li>Configured networked printers, stamp machines, and other devices</li>
-          </ul>
-
-          <h2>Tombstone Texas USA (May – November 2012)</h2>
-          <ul>
-            <li>Set up and configured POS system to handle transactions and order placements</li>
-            <li>Built custom PHP website to handle reservations, news, and newsletter</li>
-            <li>Handled communications with food and service providers, Groupon, and LivingSocial</li>
-          </ul>
-          <hr/>
-        </section>
+        <Experiences />
 
         <section title='education'>
           <h1>Education</h1>
@@ -82,7 +43,6 @@ export default React.createClass({
           <hr/>
         </section>
 
-        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
       </section>
     );
   }
@@ -101,4 +61,30 @@ var Skills = React.createClass({
           </ul>
         )
     }
+});
+
+
+var Experiences = React.createClass({
+  render: function() {
+      var experienceList = ExperienceData.map(function(experience){
+        return(
+          <div className={experience.name}>
+            <h2>{experience.name}</h2>
+            <ul>
+              {experience.details.map(function(detail){
+                return(<li dangerouslySetInnerHTML={{__html: detail}}></li>);
+              })}
+            </ul>
+          </div>
+        );
+      })
+
+      return(
+        <section title='experience'>
+          <h1>Experience</h1>
+          { experienceList }
+          <hr/>
+        </section>
+      );
+  }
 });
