@@ -1,5 +1,6 @@
 import React from 'react';
-import { History } from 'react-router';
+import History from 'react-router';
+import My from '../../stores/general';
 import Skills from './components/_skills';
 import Experiences from './components/_experiences';
 import Education from './components/_education';
@@ -8,21 +9,23 @@ export default React.createClass({
   mixins: [ History ],
 
   render() {
+
     return (
       <section className="container home">
+
         <hgroup>
-          <h1>Joshua Stowers</h1>
-          <h2>Software Engineer</h2>
+          <h1>{ My.name }</h1>
+          <h2>{ My.title }</h2>
         </hgroup>
 
         <section title='summary'>
-          <img src={'app/assets/images/profile-image.jpg'} alt='Joshua Stowers' className='profile-image'/>
-          <p>Full stack developer with nearly 4 years of development experience and an academic background in Economics and Finance.</p>
-          <p>Currently seeking employment as a <b>Ruby on Rails</b> developer or financial analyst in the San Antonio/Austin area.</p>
+          <img src={ My.profile_image_url } alt={ My.name } className='profile-image'/>
+          <p>{ My.description }</p>
+          <p>{ My.mission }</p>
           <br /><br />
-          <a href='#'>Contact Me</a>
-          <a href='#'>Resume</a>
-          <a href='#'>Strengths Finder</a>
+          <a href={ My.email }>Contact Me</a>
+          <a href={ My.resume_url }>Resume</a>
+          <a href={ My.strengths_finder_url }>Strengths Finder</a>
         </section>
 
         <Skills />
